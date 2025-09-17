@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E64A19"
+    tools:context=".BurgerFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:text="Burger Details\nCalories: 354\nFat: 18g\nProtein: 22g"
+        android:textAlignment="center"
+        android:textColor="#242121"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</FrameLayout>

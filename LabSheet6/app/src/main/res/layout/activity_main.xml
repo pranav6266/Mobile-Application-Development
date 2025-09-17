@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/timeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="116dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Time Of Delivery :"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/orderButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateLabel" />
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Cake Bakery"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#C2185B"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cakeNameSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginBottom="146dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Date Of Delivery :"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/timeLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cakeNameSpinner" />
+
+    <TextView
+        android:id="@+id/cakeNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Cake Name :"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cakeNameSpinner"
+        app:layout_constraintEnd_toStartOf="@+id/cakeNameSpinner"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/cakeNameSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="61dp"
+        app:layout_constraintBottom_toTopOf="@+id/dateLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cakeNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+    <ImageView
+        android:id="@+id/calenderImg"
+        android:layout_width="0dp"
+        android:layout_height="147dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dateLabel"
+        app:layout_constraintEnd_toEndOf="@+id/clockImg"
+        app:layout_constraintStart_toStartOf="@+id/clockImg"
+        app:layout_constraintTop_toBottomOf="@+id/dateLabel"
+        app:srcCompat="@mipmap/ic_calender_foreground" />
+
+    <ImageView
+        android:id="@+id/clockImg"
+        android:layout_width="166dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="89dp"
+        app:layout_constraintBottom_toBottomOf="@+id/orderButton"
+        app:layout_constraintEnd_toEndOf="@+id/heading"
+        app:layout_constraintStart_toStartOf="@+id/orderButton"
+        app:layout_constraintTop_toBottomOf="@+id/dateLabel"
+        app:srcCompat="@mipmap/ic_clock_foreground" />
+
+    <Button
+        android:id="@+id/orderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="131dp"
+        android:text="Place Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeLabel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

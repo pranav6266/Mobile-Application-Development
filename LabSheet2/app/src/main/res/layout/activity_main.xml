@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/height_label"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="14dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Height (in cms) :"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBaseline_toBaselineOf="@+id/height_input"
+        app:layout_constraintEnd_toStartOf="@+id/height_input"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/height_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="52dp"
+        android:hint="Enter height (in cms)"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/calculate_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/height_label"
+        app:layout_constraintTop_toBottomOf="@+id/weight_input" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/weight_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="25dp"
+        android:hint="Enter weight (in Kgs)"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/height_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weight_label"
+        app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="BMI Calculator"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#C2185B"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/weight_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="19dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Result :"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#388E3C"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/result_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+
+    <TextView
+        android:id="@+id/weight_label"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="14dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Weight (in Kgs) :"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBaseline_toBaselineOf="@+id/weight_input"
+        app:layout_constraintEnd_toStartOf="@+id/weight_input"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="161dp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#AFB42B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_label" />
+
+    <Button
+        android:id="@+id/calculate_button"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:text="Calculate BMI"
+        app:layout_constraintBottom_toTopOf="@+id/result_label"
+        app:layout_constraintStart_toEndOf="@+id/result_label"
+        app:layout_constraintTop_toBottomOf="@+id/height_input" />
+</androidx.constraintlayout.widget.ConstraintLayout>
