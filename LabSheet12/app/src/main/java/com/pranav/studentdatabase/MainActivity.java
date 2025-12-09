@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.deleteButton);
         displayButton = findViewById(R.id.displayButton);
         resultsTextView = findViewById(R.id.resultsTextView);
-        resultsTextView.setMovementMethod(new ScrollingMovementMethod()); // Make TextView scrollable
+        resultsTextView.setMovementMethod(new ScrollingMovementMethod());
 
         // Initialize the database helper
         databaseHelper = new DatabaseHelper(this);
@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter the ID to delete", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        // CORRECTED: We removed the Integer.parseInt() call completely.
         boolean isDeleted = databaseHelper.deleteStudent(idStr);
         if (isDeleted) {
             Toast.makeText(this, "Student Deleted Successfully", Toast.LENGTH_SHORT).show();

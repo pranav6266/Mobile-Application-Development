@@ -40,5 +40,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.google.android.gms:play-services-location:21.3.0") // Use the latest version
+    implementation(libs.play.services.location) // Use the latest version
 }

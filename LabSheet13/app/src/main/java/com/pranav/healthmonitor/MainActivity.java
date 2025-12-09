@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
         tempEditText = findViewById(R.id.tempEditText);
         Button submitBtn = findViewById(R.id.submitBtn);
 
-        submitBtn.setOnClickListener(view -> {
-            processVitals();
-        });
+        submitBtn.setOnClickListener(view -> processVitals());
     }
 
     private void processVitals() {
@@ -112,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("Message", message);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+                intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground) // Ensure this icon exists

@@ -3,7 +3,6 @@ package com.pranav.voteeligibility;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ResultActivity extends AppCompatActivity {
@@ -17,9 +16,14 @@ public class ResultActivity extends AppCompatActivity {
         String r_aadhar = intent.getStringExtra("AADHAR");
         int age = intent.getIntExtra("AGE",0);
         if(age>=18)
-            res.setText("Name: "+r_name+"\nAadhar Number: "+r_aadhar+"\n You are eligible to vote");
+            res.setText(String.format("Name: %s\n" +
+                    "Aadhar Number: %s\n" +
+                    "You are eligible to vote because your age is %d",
+                    r_name, r_aadhar, age));
         else
-            res.setText("Name: "+r_name+"\nAadhar Number: "+r_aadhar+"\n You are not eligible to vote");
-
+            res.setText(String.format("Name: %s\n" +
+                            "Aadhar Number: %s\n" +
+                            "You are not eligible to vote because your age is %d",
+                    r_name, r_aadhar, age));
     }
 }

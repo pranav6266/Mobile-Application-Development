@@ -8,8 +8,7 @@ import androidx.annotation.Nullable;
 
 public class MusicPlayerService extends Service {
     private MediaPlayer mediaPlayer;
-    @Nullable
-    @Override
+    @Nullable @Override
     public IBinder onBind(Intent intent) {
         // We don't provide binding, so return null
         return null;

@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,19 +22,20 @@ public class MainActivity extends AppCompatActivity {
         TextView result = findViewById(R.id.result);
         Spinner electiveSpinner = findViewById(R.id.elective_spinner);
 
-        ArrayAdapter adapter = new ArrayAdapter(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.courses)
         );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         electiveSpinner.setAdapter(adapter);
         electiveSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                selectedCourse = adapterView.getItemAtPosition(position).toString();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedCourse = electiveSpinner.getSelectedItem().toString();
             }
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
         });
         findViewById(R.id.submit_button).setOnClickListener(v ->
                 result.setText(String.format(

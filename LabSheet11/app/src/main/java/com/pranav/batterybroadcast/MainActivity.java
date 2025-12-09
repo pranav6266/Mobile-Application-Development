@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         // Initialize the receiver
         batteryReceiver = new BatteryReceiver(batteryProgressBar, batteryLevelTextView);
     }
-
     @Override
     protected void onResume() {
         super.onResume();

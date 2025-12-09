@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     // Use constants for keys to avoid typos
@@ -34,38 +36,29 @@ public class MainActivity extends AppCompatActivity {
         // Setup the adapter for the movie dropdown
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, movies);
         movieAutoComplete.setAdapter(adapter);
-
-        submitBtn.setOnClickListener(v -> {
-            saveData();
-        });
+        submitBtn.setOnClickListener(v -> saveData());
     }
-
     @Override
     protected void onResume() {
         super.onResume();
         // Load data every time the app is resumed
         loadData();
     }
-
     private void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         String movieName = movieAutoComplete.getText().toString();
-        String ticketsStr = ticketsEditText.getText().toString();
-
+        String ticketsStr = Objects.requireNonNull(ticketsEditText.getText()).toString();
         // Validate that a movie is selected and tickets are entered
         if (movieName.isEmpty() || ticketsStr.isEmpty()) {
             Toast.makeText(this, "Please select a movie and enter ticket count", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             int ticketsCount = Integer.parseInt(ticketsStr);
             editor.putString(KEY_MOVIE_NAME, movieName);
             editor.putInt(KEY_TICKETS_COUNT, ticketsCount);
-            editor.apply(); // Use apply() for background saving
-
+            editor.apply();
             Toast.makeText(this, "Booking saved successfully!", Toast.LENGTH_SHORT).show();
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Please enter a valid number of tickets", Toast.LENGTH_SHORT).show();

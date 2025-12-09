@@ -8,15 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.Spinner;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Spinner cakeName = findViewById(R.id.cakeNameSpinner);
         ImageView calender = findViewById(R.id.calenderImg);
         ImageView clock = findViewById(R.id.clockImg);
-        ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cakes);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cakes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         cakeName.setAdapter(adapter);
         cakeName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -6,12 +6,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    private String selectedGender = ""; // store gender text
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         EditText fatherName = findViewById(R.id.father_name_input);
         RadioGroup genderGroup = findViewById(R.id.rb_group);
         AutoCompleteTextView place = findViewById(R.id.place_input);
+        TextView result = findViewById(R.id.res);
 
         // Setup autocomplete
         String[] locations = {"Bangalore","Delhi","Pune","Bombay","Chennai","Hyderabad","Calcutta"};
@@ -29,21 +29,19 @@ public class MainActivity extends AppCompatActivity {
         place.setThreshold(1);
         place.setAdapter(adapter);
 
-        // Track selected gender
-        genderGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton rb = findViewById(checkedId);
-            selectedGender = rb.getText().toString();
-        });
 
         findViewById(R.id.submit_button).setOnClickListener(v -> {
+            int selectedId = genderGroup.getCheckedRadioButtonId();
+            RadioButton rb = findViewById(selectedId);
             String res = String.format(
                     "Name: %s\nFather's name: %s\nGender: %s\nPlace of Birth: %s",
                     name.getText().toString(),
                     fatherName.getText().toString(),
-                    selectedGender,
+                    rb.getText().toString(),
                     place.getText().toString()
             );
-            Toast.makeText(this, res , Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, res , Toast.LENGTH_LONG).show();
+            result.setText(res);
         });
     }
 }
